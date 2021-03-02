@@ -1,0 +1,79 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ****************************** OUR CODE BELOW ******************************* */
+.profile-div {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 100vh;
+  border: 1px solid teal;
+  }
+  
+  .list-bar-div { 
+    grid-area: 1 / 1 / 13 / 4; 
+    border: 1px solid pink;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+  .main-display-div { 
+    grid-area: 1 / 4 / 13 / 13; 
+    border: 1px solid purple;
+  }
+
+  
+      
+  .list-task { 
+    grid-area: 1 / 1 / 5 / 13; 
+    border: 1px solid yellow;
+  }
+  .list-gratitude { 
+    grid-area: 5 / 1 / 9 / 13; 
+    border: 1px solid yellow;
+  }
+  .list-journal { 
+    grid-area: 9 / 1 / 13 / 13; 
+    border: 1px solid yellow;
+  }
