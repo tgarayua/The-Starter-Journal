@@ -3,6 +3,7 @@ class CreateTaskLists < ActiveRecord::Migration[6.0]
     create_table :task_lists do |t|
       t.integer :user_id
       t.string :task_item
+      t.boolean :complete
 
       t.timestamps
     end
