@@ -1,8 +1,9 @@
 import React from "react";
 
-function TaskCard() {
+function TaskCard({ task }) {
+
     return(
-        <h4>TaskCard</h4>
+        <li>{task.task_item}</li>
     )
 }
 

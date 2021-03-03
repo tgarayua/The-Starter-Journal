@@ -1,8 +1,9 @@
 import React from "react";
 
-function GratitudeCard() {
+function GratitudeCard({ gratitude_item }) {
+
     return(
-        <h4>GratitudeCard</h4>
+        <li>{gratitude_item.gratitude_item}</li>
     )
 }
 
