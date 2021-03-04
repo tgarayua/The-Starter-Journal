@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-function JournalCard({ journal_post }) {
-
+function JournalCard({ journal_post, setDisplayPost }) {
     return(
-        <li>{journal_post.title}</li>
+        <li onClick={() => setDisplayPost(journal_post)}>
+            {journal_post.title}
+        </li>
     )
 }
 

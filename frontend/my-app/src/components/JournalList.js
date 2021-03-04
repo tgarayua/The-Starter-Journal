@@ -1,10 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import JournalCard from "./JournalCard"
 
-function JournalList({ journal_posts }) {
-
-    console.log(journal_posts)
-
+function JournalList({ journal_posts, setDisplayPost }) {
     return(
         <div className="list-journal">
             <h3>Journal List</h3>
@@ -13,6 +10,7 @@ function JournalList({ journal_posts }) {
                     return <JournalCard 
                         key={journal_post.id} 
                         journal_post={journal_post}
+                        setDisplayPost={setDisplayPost}
                     />
                 })}
             </ul>

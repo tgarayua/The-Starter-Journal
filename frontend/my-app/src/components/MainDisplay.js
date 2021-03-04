@@ -1,10 +1,13 @@
 import React from "react";
 
-function MainDisplay() {
+function MainDisplay({ displayPost }) {
     return(
         <div className="main-display-div">
-            <h2>Main Display</h2>
+            {displayPost && <h2>{displayPost.title}</h2>}
+            {displayPost && displayPost.content}
+            {!displayPost && "Nothing to see here!"}
         </div>
+         
     )
 }
 
