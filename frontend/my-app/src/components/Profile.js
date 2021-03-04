@@ -6,12 +6,7 @@ function Profile() {
 
     const [ userData, setUserData ] = useState({})
     const [ displayPost, setDisplayPost ] = useState()
-    // some state (user)
-
-
-    // make fetch request fetch request => http://localhost:3000/users/1
-    // save response to state
-    // Pass specific parts of state down as props
+    const [ displayForm, setDisplayForm ] = useState(false)
 
     useEffect(() => {
         fetch("http://localhost:3000/users/1")
@@ -32,8 +27,11 @@ function Profile() {
             tasks={userData.task_lists}
             journal_posts={userData.journal_posts}
             setDisplayPost={setDisplayPost}
+            setDisplayForm={setDisplayForm}
+            displayForm={displayForm}
         />
-        <MainDisplay displayPost={displayPost}/>
+        <MainDisplay displayPost={displayPost}
+        displayForm={displayForm} />
     </div>
     );
 }
