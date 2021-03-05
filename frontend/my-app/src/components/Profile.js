@@ -7,16 +7,33 @@ function Profile() {
     const [ userData, setUserData ] = useState({})
     const [ displayPost, setDisplayPost ] = useState()
     const [ displayForm, setDisplayForm ] = useState(false)
+    const [ journalTitle, setJournalTitle ] = useState("")
+    const [ journalContent, setJournalContent ] = useState("")
 
     useEffect(() => {
         fetch("http://localhost:3000/users/1")
-        .then((r) => r.json())
-        .then((userData) => {
+        .then(r => r.json())
+        .then(userData => {
             setUserData(userData);
         });
     }, []);
 
+    const submit = e => {
+        e.preventDefault()
+        fetch('http://localhost:3000/journal_posts/', {
+            method: 'POST',
+            body: JSON.stringify({ title: journalTitle, content: journalContent }),
+            headers: { 'Content-Type': 'application/json' },
+        })
+        .then(r => r.json())
+        .then(() => {
+            setJournalTitle(journalTitle)
+            setJournalContent(journalContent)
+        })
+    }
+
     useEffect(() => {
+        setDisplayForm(false)
         setDisplayPost(displayPost)
     }, [displayPost]);
 
@@ -30,8 +47,15 @@ function Profile() {
             setDisplayForm={setDisplayForm}
             displayForm={displayForm}
         />
-        <MainDisplay displayPost={displayPost}
-        displayForm={displayForm} />
+        <MainDisplay 
+            displayPost={displayPost}
+            displayForm={displayForm} 
+            journalTitle={journalTitle}
+            setJournalTitle={setJournalTitle}
+            journalContent={journalContent}
+            setJournalContent={setJournalContent}
+            submit={submit}
+        />
     </div>
     );
 }

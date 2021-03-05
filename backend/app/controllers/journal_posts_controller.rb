@@ -10,7 +10,7 @@ class JournalPostsController < ApplicationController
         if journal_post
             render json: journal_post
         else
-            render json: { error: "Journal post not found" }, status :not_found
+            render json: { error: "Journal post not found" }, :status => :not_found
         end
     end
 
@@ -21,7 +21,7 @@ class JournalPostsController < ApplicationController
         if journal_post.valid?
             render json: journal_post
         else
-            render json: { error: journal_post.errors.full_messages }, status: :unprocessable_entity
+            render json: { error: journal_post.errors.full_messages }, :status => :unprocessable_entity
         end
     end
 

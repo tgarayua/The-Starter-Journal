@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import JournalCard from "./JournalCard"
 
-function JournalList({ journal_posts, setDisplayPost, setDisplayForm, displayForm }) {
+function JournalList({ journal_posts, setDisplayPost, setDisplayForm, displayForm,  }) {
 
     return(
         <div className="list-journal">
