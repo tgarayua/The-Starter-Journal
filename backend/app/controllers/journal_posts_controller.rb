@@ -25,21 +25,16 @@ class JournalPostsController < ApplicationController
         end
     end
 
-    def edit
-        # journal_post = JournalPost.find(params[:id])
-
-        render :edit
-    end
 
     def update
-        # journal_post = JournalPost.find(params[:id])
+        journal_post = JournalPost.find(params[:id])
         journal_post.update(journal_post_params)
 
         redirect_to journal_post_path(journal_post)
     end
 
     def destroy
-        # journal_post = JournalPost.find(params[:id])
+        journal_post = JournalPost.find(params[:id])
         journal_post.destroy
     end
 

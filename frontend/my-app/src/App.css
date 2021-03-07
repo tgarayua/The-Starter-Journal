@@ -46,34 +46,32 @@
   grid-row-gap: 0px;
   height: 100vh;
   border: 1px solid teal;
-  }
-  
-  .list-bar-div { 
-    grid-area: 1 / 1 / 13 / 4; 
-    border: 1px solid pink;
+}
 
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-  }
-  .main-display-div { 
-    grid-area: 1 / 4 / 13 / 13; 
-    border: 1px solid purple;
-  }
+.list-bar-div {
+  grid-area: 1 / 1 / 13 / 4;
+  border: 1px solid pink;
 
-  
-      
-  .list-task { 
-    grid-area: 1 / 1 / 5 / 13; 
-    border: 1px solid yellow;
-  }
-  .list-gratitude { 
-    grid-area: 5 / 1 / 9 / 13; 
-    border: 1px solid yellow;
-  }
-  .list-journal { 
-    grid-area: 9 / 1 / 13 / 13; 
-    border: 1px solid yellow;
-  }
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+.main-display-div {
+  grid-area: 1 / 4 / 13 / 13;
+  border: 1px solid purple;
+}
+
+.list-task {
+  grid-area: 1 / 1 / 5 / 13;
+  border: 1px solid yellow;
+}
+.list-gratitude {
+  grid-area: 5 / 1 / 9 / 13;
+  border: 1px solid yellow;
+}
+.list-journal {
+  grid-area: 9 / 1 / 13 / 13;
+  border: 1px solid yellow;
+}
