@@ -10,6 +10,9 @@ function ListBar({
   setDisplayPost,
   setDisplayForm,
   displayForm,
+  setIsEditing,
+  setJournalTitle,
+  setJournalContent
 }) {
   return (
     <div className="list-bar-div">
@@ -20,6 +23,9 @@ function ListBar({
         setDisplayPost={setDisplayPost}
         setDisplayForm={setDisplayForm}
         displayForm={displayForm}
+        setIsEditing={setIsEditing}
+        setJournalTitle={setJournalTitle}
+        setJournalContent={setJournalContent}
       />
     </div>
   );

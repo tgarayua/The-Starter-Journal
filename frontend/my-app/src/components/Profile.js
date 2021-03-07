@@ -8,6 +8,8 @@ function Profile() {
   const [displayForm, setDisplayForm] = useState(false);
   const [journalTitle, setJournalTitle] = useState("");
   const [journalContent, setJournalContent] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
+
 
   useEffect(() => {
     fetch("http://localhost:3000/users/1")
@@ -17,41 +19,41 @@ function Profile() {
       });
   }, []);
 
-  const submit = (e) => {
+  const handleCreate = e => {
     e.preventDefault();
     fetch("http://localhost:3000/journal_posts/", {
       method: "POST",
-      body: JSON.stringify({ title: journalTitle, content: journalContent }),
       headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title: journalTitle, content: journalContent }),
     })
       .then((r) => r.json())
       .then(() => {
         setJournalTitle(journalTitle);
         setJournalContent(journalContent);
+        setDisplayForm(false);
       });
   };
 
-  const handleDelete = (e) => {
+  const handleDelete = e => {
     e.preventDefault();
     fetch(`http://localhost:3000/journal_posts/${displayPost.id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     })
-    .then(
-      setDisplayPost(null)
-    );
+    .then(setDisplayPost(null));
   };
 
-  const handleUpdate = (e) => {
+  const handleUpdate = e => {
     e.preventDefault();
     fetch(`http://localhost:3000/journal_posts/${displayPost.id}`, {
       method: "PUT",
-      body: JSON.stringify({ title: journalTitle, content: journalContent }),
       headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title: journalTitle, content: journalContent }),
     })
-    .then(
-      setDisplayPost(displayPost)
-    );
+    .then(() => {
+      setDisplayPost(displayPost);
+      setDisplayForm(false);
+    });
   };
 
   useEffect(() => {
@@ -68,17 +70,23 @@ function Profile() {
         setDisplayPost={setDisplayPost}
         setDisplayForm={setDisplayForm}
         displayForm={displayForm}
+        setIsEditing={setIsEditing}
+        setJournalTitle={setJournalTitle}
+        setJournalContent={setJournalContent}
       />
       <MainDisplay
-      handleUpdate={handleUpdate}
+        setDisplayForm={setDisplayForm}
         displayPost={displayPost}
         displayForm={displayForm}
         journalTitle={journalTitle}
         setJournalTitle={setJournalTitle}
         journalContent={journalContent}
         setJournalContent={setJournalContent}
-        submit={submit}
+        handleCreate={handleCreate}
+        handleUpdate={handleUpdate}
         handleDelete={handleDelete}
+        isEditing={isEditing}
+        setIsEditing={setIsEditing}
       />
     </div>
   );

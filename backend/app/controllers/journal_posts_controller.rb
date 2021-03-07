@@ -29,8 +29,6 @@ class JournalPostsController < ApplicationController
     def update
         journal_post = JournalPost.find(params[:id])
         journal_post.update(journal_post_params)
-
-        redirect_to journal_post_path(journal_post)
     end
 
     def destroy
@@ -42,10 +40,6 @@ class JournalPostsController < ApplicationController
 
     def journal_post_params
         params.permit(:title, :content)
-    end
-
-    def find_journal_post
-        journal_post = JournalPost.find(params[:id])
     end
 
 end

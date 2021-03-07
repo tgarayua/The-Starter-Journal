@@ -3,27 +3,46 @@ import Form from "./Form";
 import JournalPost from "./JournalPost";
 
 function MainDisplay({
-  handleUpdate,
   displayPost,
   displayForm,
+  setDisplayForm,
   journalTitle,
   setJournalTitle,
   journalContent,
   setJournalContent,
-  submit,
-  handleDelete
+  handleCreate,
+  handleDelete,
+  handleUpdate,
+  setIsEditing,
+  isEditing
 }) {
   return (
     <div>
       {displayForm ? (
         <Form
+          setDisplayForm={setDisplayForm}
           journalTitle={journalTitle}
           setJournalTitle={setJournalTitle}
           journalContent={journalContent}
           setJournalContent={setJournalContent}
-          submit={submit}
+          handleCreate={handleCreate}
+          handleUpdate={handleUpdate}
+          displayPost={displayPost}
+          isEditing={isEditing}
         />
-      ) : <JournalPost handleUpdate={handleUpdate} displayPost={displayPost} handleDelete={handleDelete}/>}
+      ) : (
+        <JournalPost
+          setJournalTitle={setJournalTitle}
+          journalTitle={setJournalContent}
+          setJournalContent={setJournalContent}
+          journalContent={journalContent}
+          displayPost={displayPost}
+          handleDelete={handleDelete}
+          setDisplayForm={setDisplayForm}
+          displayForm={displayForm}
+          setIsEditing={setIsEditing}
+        />
+      )}
     </div>
   );
 }

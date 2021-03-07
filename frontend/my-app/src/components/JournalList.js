@@ -5,12 +5,22 @@ function JournalList({
   journal_posts,
   setDisplayPost,
   setDisplayForm,
-  displayForm,
+  setIsEditing,
+  setJournalTitle,
+  setJournalContent
 }) {
+
+  const handleEnterNewPostMode = () => {
+    setDisplayForm(true)
+    setIsEditing(false)
+    setJournalTitle("")
+    setJournalContent("")
+  }
+
   return (
     <div className="list-journal">
       <h3>Journal List</h3>
-      <button onClick={() => setDisplayForm(!displayForm)}>
+      <button onClick={handleEnterNewPostMode}>
         New Journal Post
       </button>
       <ul>
