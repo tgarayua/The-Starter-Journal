@@ -17,7 +17,9 @@ function ListBar({
   return (
     <div className="list-bar-div">
       <TaskList tasks={tasks} />
-      <GratitudeList gratitude_list={gratitude_list} />
+      <GratitudeList 
+      gratitude_list={gratitude_list} 
+      />
       <JournalList
         journal_posts={journal_posts}
         setDisplayPost={setDisplayPost}
