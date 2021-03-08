@@ -21,14 +21,9 @@ function GratitudeList({ gratitude_list }) {
       });
   };
 
-  const handleShowForm = () => {
+  const handleShowForm = value => {
+    setGratitudeTitle(value);
     setDisplayGratitudeForm(true);
-    setGratitudeTitle("");
-  };
-
-  const handleEditItemForm = () => {
-    setDisplayGratitudeForm(true);
-    setGratitudeTitle("");
   };
 
   const handleEditGratitudeItem = e => {
@@ -60,10 +55,10 @@ function GratitudeList({ gratitude_list }) {
             ? isEditingGratitudeItem
               ? handleEditGratitudeItem
               : handleCreateGratitudeItem
-            : handleShowForm
+            : () => handleShowForm("")
         }
       >
-        {displayGratitudeForm ? "Submit" : "Create"} Gratitude Item
+        {displayGratitudeForm ? (isEditingGratitudeItem ? "Update" : "Submit"): "Create"} Gratitude Item
       </button>
       {displayGratitudeForm && (
         <input

@@ -14,7 +14,7 @@ function GratitudeCard({
         onClick={() => {
           setGratitudeItem(gratitude_item);
           setIsEditingGratitudeItem(true);
-          handleShowForm();
+          handleShowForm(gratitude_item.title);
         }}
       >
         Edit
