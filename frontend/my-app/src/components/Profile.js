@@ -12,7 +12,7 @@ function Profile() {
 
 
   useEffect(() => {
-    fetch("http://localhost:3000/users/1")
+    fetch("http://localhost:3000/user/1")
       .then((r) => r.json())
       .then((userData) => {
         setUserData(userData);
@@ -64,9 +64,9 @@ function Profile() {
   return (
     <div className="profile-div">
       <ListBar
-        gratitude_list={userData.gratitude_lists}
-        tasks={userData.task_lists}
-        journal_posts={userData.journal_posts}
+        gratitude_list={userData.gratitude_item}
+        tasks={userData.task}
+        journal_posts={userData.journal_post}
         setDisplayPost={setDisplayPost}
         setDisplayForm={setDisplayForm}
         displayForm={displayForm}

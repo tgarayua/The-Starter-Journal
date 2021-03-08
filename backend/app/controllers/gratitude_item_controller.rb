@@ -1,4 +1,9 @@
-class GratitudeListsController < ApplicationController
+class GratitudeItemController < ApplicationController
+
+    def index 
+        gratitude_items = GratitudeItem.all
+        render json: gratitude_items
+    end 
 
     def create
         current_user = User.first
@@ -13,23 +18,23 @@ class GratitudeListsController < ApplicationController
 
 
     def update
-        gratitude_item = JournalPost.find(params[:id])
+        gratitude_item = GratitudeItem.find(params[:id])
         gratitude_item.update(gratitude_item_params)
     end
 
     def destroy
-        gratitude_item = GratitudeList.find(params[:id])
+        gratitude_item = GratitudeItem.find(params[:id])
         gratitude_item.destroy
     end
 
     private
 
     def gratitude_item_params
-        params.permit(:title, :content)
+        params.permit(:title)
     end
 
     def find_gratitude_item
-        gratitude_item = JournalPost.find(params[:id])
+        gratitude_item = GratitudeItem.find(params[:id])
     end
 
 end

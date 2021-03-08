@@ -15,9 +15,9 @@ ActiveRecord::Schema.define(version: 2021_02_25_154757) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "gratitude_lists", force: :cascade do |t|
+  create_table "gratitude_items", force: :cascade do |t|
     t.integer "user_id"
-    t.string "gratitude_item"
+    t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 2021_02_25_154757) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "task_lists", force: :cascade do |t|
+  create_table "tasks", force: :cascade do |t|
     t.integer "user_id"
-    t.string "task_item"
+    t.string "title"
     t.boolean "complete"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

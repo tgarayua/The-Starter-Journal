@@ -1,7 +1,7 @@
 import React from "react";
 
 function TaskCard({ task }) {
-  return <li>{task.task_item}</li>;
+  return <li>{task.title}</li>;
 }
 
 export default TaskCard;
