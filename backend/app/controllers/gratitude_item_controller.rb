@@ -8,7 +8,7 @@ class GratitudeItemController < ApplicationController
     def create
         current_user = User.first
 
-        gratitude_item = current_user.gratitude_item.create(gratitude_item_params)
+        gratitude_item = current_user.gratitude_items.create(gratitude_item_params)
         if gratitude_item.valid?
             render json: gratitude_item
         else

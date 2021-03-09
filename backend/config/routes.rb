@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :journal_post
+
   resources :task
   resources :gratitude_item
   resources :user

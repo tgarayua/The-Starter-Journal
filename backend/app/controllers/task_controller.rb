@@ -8,7 +8,7 @@ class TaskController < ApplicationController
     def create
         current_user = User.first
 
-        task = current_user.task.create(task_params)
+        task = current_user.tasks.create(task_params)
         if task.valid?
             render json: task
         else
