@@ -59,7 +59,7 @@
   grid-row-gap: 0px;
 }
 .main-display-div {
-  grid-area: 1 / 4 / 13 / 13;
+  grid-area: 1 / 5 / 13 / 13;
   border: 1px solid purple;
 }
 

@@ -21,7 +21,7 @@ function Profile() {
 
   const handleCreate = e => {
     e.preventDefault();
-    fetch("http://localhost:3000/journal_posts/", {
+    fetch("http://localhost:3000/journal_post/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title: journalTitle, content: journalContent }),
@@ -36,7 +36,7 @@ function Profile() {
 
   const handleDelete = e => {
     e.preventDefault();
-    fetch(`http://localhost:3000/journal_posts/${displayPost.id}`, {
+    fetch(`http://localhost:3000/journal_post/${displayPost.id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     })
@@ -45,7 +45,7 @@ function Profile() {
 
   const handleUpdate = e => {
     e.preventDefault();
-    fetch(`http://localhost:3000/journal_posts/${displayPost.id}`, {
+    fetch(`http://localhost:3000/journal_post/${displayPost.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title: journalTitle, content: journalContent }),
@@ -64,9 +64,9 @@ function Profile() {
   return (
     <div className="profile-div">
       <ListBar
-        gratitude_list={userData.gratitude_item}
-        tasks={userData.task}
-        journal_posts={userData.journal_post}
+        gratitude_list={userData.gratitude_items}
+        tasks={userData.tasks}
+        journal_posts={userData.journal_posts}
         setDisplayPost={setDisplayPost}
         setDisplayForm={setDisplayForm}
         displayForm={displayForm}
