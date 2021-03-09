@@ -12,13 +12,15 @@ function ListBar({
   displayForm,
   setIsEditing,
   setJournalTitle,
-  setJournalContent
+  setJournalContent,
+  setUserData
 }) {
   return (
     <div className="list-bar-div">
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} setUserData={setUserData}/>
       <GratitudeList 
       gratitude_list={gratitude_list} 
+      setUserData={setUserData}
       />
       <JournalList
         journal_posts={journal_posts}

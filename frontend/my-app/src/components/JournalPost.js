@@ -19,9 +19,9 @@ function JournalPost({
   return (
     <div className="main-display-div">
       {displayPost && (
-        <div>
+        <div className="main-content">
           <h2>{displayPost.title}</h2>
-          {displayPost.content}
+          <p>{displayPost.content}</p>
           <button onClick={handleDelete}>Delete</button>
           <button onClick={handleEnterEditMode}>Edit</button>
         </div>

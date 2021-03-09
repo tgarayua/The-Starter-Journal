@@ -24,7 +24,8 @@ function JournalList({
         New Journal Post
       </button>
       <ul>
-        {journal_posts?.map((journal_post) => {
+        {journal_posts ? 
+        journal_posts.reverse().map((journal_post) => {
           return (
             <JournalCard
               key={journal_post.id}
@@ -32,7 +33,10 @@ function JournalList({
               setDisplayPost={setDisplayPost}
             />
           );
-        })}
+        })
+        :
+        null
+      }
       </ul>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import GratitudeCard from "./GratitudeCard";
 
-function GratitudeList({ gratitude_list }) {
+function GratitudeList({ gratitude_list, setUserData }) {
   const [gratitudeTitle, setGratitudeTitle] = useState("");
   const [gratitudeItem, setGratitudeItem] = useState({});
   const [displayGratitudeForm, setDisplayGratitudeForm] = useState(false);
@@ -15,25 +15,29 @@ function GratitudeList({ gratitude_list }) {
       body: JSON.stringify({ title: gratitudeTitle }),
     })
       .then((r) => r.json())
-      .then(() => {
+      .then((user) => {
+        setUserData(user)
         setGratitudeTitle(gratitudeTitle);
         setDisplayGratitudeForm(false);
       });
-  };
-
-  const handleShowForm = value => {
-    setGratitudeTitle(value);
-    setDisplayGratitudeForm(true);
-  };
-
-  const handleEditGratitudeItem = e => {
-    e.preventDefault();
-    fetch(`http://localhost:3000/gratitude_item/${gratitudeItem.id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title: gratitudeTitle }),
-    }).then(() => {
-      setDisplayGratitudeForm(false);
+    };
+    
+    const handleShowForm = value => {
+      setGratitudeTitle(value);
+      setDisplayGratitudeForm(true);
+    };
+    
+    const handleEditGratitudeItem = e => {
+      e.preventDefault();
+      fetch(`http://localhost:3000/gratitude_item/${gratitudeItem.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title: gratitudeTitle }),
+      })
+      .then(res => res.json())
+      .then((user) => {
+        setUserData(user)
+        setDisplayGratitudeForm(false);
     });
   };
 
@@ -42,7 +46,11 @@ function GratitudeList({ gratitude_list }) {
     fetch(`http://localhost:3000/gratitude_item/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-    });
+    })
+    .then(res => res.json())
+    .then(user => {
+      setUserData(user)
+    })
   };
 
 

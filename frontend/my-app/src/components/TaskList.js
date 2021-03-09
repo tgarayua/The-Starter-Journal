@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TaskCard from "./TaskCard";
 
-function TaskList({ tasks }) {
+function TaskList({ tasks, setUserData }) {
   const [taskTitle, setTaskTitle] = useState("");
   const [task, setTask] = useState({});
   const [displayTaskForm, setDisplayTaskForm] = useState(false);
@@ -15,25 +15,29 @@ function TaskList({ tasks }) {
       body: JSON.stringify({ title: taskTitle }),
     })
       .then((r) => r.json())
-      .then(() => {
+      .then((user) => {
+        setUserData(user)
         setTaskTitle(taskTitle);
         setDisplayTaskForm(false);
       });
-  };
-
-  const handleShowForm = value => {
-    setTaskTitle(value);
-    setDisplayTaskForm(true);
-  };
-
-  const handleEditTask = (e) => {
-    e.preventDefault();
-    fetch(`http://localhost:3000/task/${task.id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title: taskTitle }),
-    }).then(() => {
-      setDisplayTaskForm(false);
+    };
+    
+    const handleShowForm = value => {
+      setTaskTitle(value);
+      setDisplayTaskForm(true);
+    };
+    
+    const handleEditTask = (e) => {
+      e.preventDefault();
+      fetch(`http://localhost:3000/task/${task.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title: taskTitle }),
+      })
+      .then(res => res.json())
+      .then((user) => {
+        setUserData(user)
+        setDisplayTaskForm(false);
     });
   };
 
@@ -42,7 +46,11 @@ function TaskList({ tasks }) {
     fetch(`http://localhost:3000/task/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-    });
+    })
+    .then(res => res.json())
+    .then(user => {
+      setUserData(user)
+    })
   };
 
   return (
@@ -78,6 +86,7 @@ function TaskList({ tasks }) {
             setIsEditingTask={setIsEditingTask}
             handleShowForm={handleShowForm}
             handleDelete={handleDelete}
+            setUserData={setUserData}
           />
         ))}
       </ol>

@@ -27,32 +27,42 @@ function Profile() {
       body: JSON.stringify({ title: journalTitle, content: journalContent }),
     })
       .then((r) => r.json())
-      .then(() => {
-        setJournalTitle(journalTitle);
-        setJournalContent(journalContent);
-        setDisplayForm(false);
+      .then((user) => {
+        // console.log("user", user)
+        setUserData(user)
+        setDisplayPost(user.journal_posts[0])
+        // setJournalTitle(journalTitle);
+        // setJournalContent(journalContent);
+        // setDisplayForm(false);
       });
-  };
+    };
 
-  const handleDelete = e => {
-    e.preventDefault();
-    fetch(`http://localhost:3000/journal_post/${displayPost.id}`, {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-    })
-    .then(setDisplayPost(null));
-  };
-
-  const handleUpdate = e => {
-    e.preventDefault();
-    fetch(`http://localhost:3000/journal_post/${displayPost.id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title: journalTitle, content: journalContent }),
-    })
-    .then(() => {
-      setDisplayPost(displayPost);
-      setDisplayForm(false);
+    const handleDelete = e => {
+      e.preventDefault();
+      fetch(`http://localhost:3000/journal_post/${displayPost.id}`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+      })
+      .then(res => res.json())
+      .then(user => {
+        setUserData(user)
+        setDisplayPost(null)
+      });
+    };
+    
+    const handleUpdate = e => {
+      e.preventDefault();
+      fetch(`http://localhost:3000/journal_post/${displayPost.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title: journalTitle, content: journalContent }),
+      })
+      .then(res => res.json())
+      .then((user) => {
+        setUserData(user)
+        setDisplayPost(user.journal_posts[0])
+        // setDisplayPost(displayPost);
+      // setDisplayForm(false);
     });
   };
 
@@ -67,6 +77,7 @@ function Profile() {
         gratitude_list={userData.gratitude_items}
         tasks={userData.tasks}
         journal_posts={userData.journal_posts}
+        setUserData={setUserData}
         setDisplayPost={setDisplayPost}
         setDisplayForm={setDisplayForm}
         displayForm={displayForm}

@@ -9,7 +9,9 @@ function GratitudeCard({
 }) {
   return (
     <li>
-      {gratitude_item.title}
+      <p>
+        {gratitude_item.title}
+      </p>
       <button
         onClick={() => {
           setGratitudeItem(gratitude_item);

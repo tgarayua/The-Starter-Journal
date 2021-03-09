@@ -58,20 +58,53 @@
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
+
+
 .main-display-div {
-  grid-area: 1 / 5 / 13 / 13;
+  grid-area: 1 / 4 / 13 / 13;
+  height: 100vh;
+  width: 100%;
+  padding: 10px;
+  /* margin: 0 auto; */
   border: 1px solid purple;
 }
 
 .list-task {
   grid-area: 1 / 1 / 5 / 13;
   border: 1px solid yellow;
+  overflow-y: scroll;
 }
+
+.list-task p {
+  margin: 10px 0px 0px 0px;
+}
+
 .list-gratitude {
   grid-area: 5 / 1 / 9 / 13;
   border: 1px solid yellow;
+  overflow-y: scroll;
 }
+
+.list-gratitude p {
+  margin: 10px 0px 0px 0px;
+}
+
 .list-journal {
   grid-area: 9 / 1 / 13 / 13;
   border: 1px solid yellow;
+  overflow-y: scroll;
 }
+
+
+
+.main-content {
+  border: 1px solid red;
+  width: 95%;
+  padding: 10px;
+  margin: 0px auto;
+  white-space: pre-line;
+  /* text-overflow: ellipsis; */
+  overflow-wrap: break-word;
+}
+
+

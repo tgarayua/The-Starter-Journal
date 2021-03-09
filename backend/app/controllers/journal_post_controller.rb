@@ -19,7 +19,7 @@ class JournalPostController < ApplicationController
 
         journal_post = current_user.journal_posts.create(journal_post_params)
         if journal_post.valid?
-            render json: journal_post
+            render json: current_user
         else
             render json: { error: journal_post.errors.full_messages }, :status => :unprocessable_entity
         end
@@ -27,13 +27,21 @@ class JournalPostController < ApplicationController
 
 
     def update
+        current_user = User.first
+        
         journal_post = JournalPost.find(params[:id])
         journal_post.update(journal_post_params)
+        
+        render json: current_user
     end
-
+    
     def destroy
+        current_user = User.first
+
         journal_post = JournalPost.find(params[:id])
         journal_post.destroy
+
+        render json: current_user
     end
 
     private
