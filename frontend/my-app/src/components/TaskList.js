@@ -56,19 +56,19 @@ function TaskList({ tasks, setUserData }) {
   return (
     <div className="list-task">
       <div className="task-header header">
-      <h3>TaskList</h3>
-      <i 
-        class="far fa-plus-square"
-        onClick={
-          displayTaskForm
-            ? isEditingTask
-              ? handleEditTask
-              : handleCreateTask
-            : () => handleShowForm("")
-        }
-      >
-        {displayTaskForm ? (isEditingTask ? "Update " : "Submit ") : "Create "}
-      </i>
+        <span className="sidebar-header">Task List</span>
+        <span className="icon">
+          <i 
+            class={"far fa-" + (displayTaskForm ? "save" : "sticky-note") + " fa-lg"}
+            onClick={
+              displayTaskForm
+                ? isEditingTask
+                  ? handleEditTask
+                  : handleCreateTask
+                : () => handleShowForm("")
+            }
+          />
+        </span>
       </div>
       <div className="task-body">
       {displayTaskForm && (
@@ -81,7 +81,7 @@ function TaskList({ tasks, setUserData }) {
         />
       )}
       
-        {tasks?.map((task) => (
+        {tasks?.sort((a, b) => a.id - b.id ).map((task) => (
           <TaskCard
             key={task.id}
             task={task}

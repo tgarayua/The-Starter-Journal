@@ -26,7 +26,7 @@ function JournalList({
       </div>
       <div className="journal-bar-body">
         {journal_posts
-          ? journal_posts.reverse().map((journal_post) => {
+          ? journal_posts.sort((a, b) => b.id - a.id ).map((journal_post) => {
               return (
                 <JournalCard
                   key={journal_post.id}

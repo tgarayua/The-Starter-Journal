@@ -55,6 +55,13 @@
   padding: 0px;
   background-color: rgb(240, 240, 240);
   color: black;
+  font-size: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  overflow-y: scroll;
+}
+
+.main-content {
+  text-align: left;
 }
 
 .header {
@@ -75,10 +82,25 @@
   overflow-y: scroll;
 }
 
+.journal-bar-body {
+  background-color: lightgrey;
+  overflow: scroll;
+  height: 200px;
+}
+
+.display-post-header {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
 .task-body {
   background-color: lightgrey;
   overflow: scroll;
   height: 200px;
+}
+
+.task-header {
+  padding: 20px;
 }
 
 .journal-bar-header {
@@ -87,6 +109,12 @@
 
 .icon { 
   color: darkgray;
+}
+
+.task-body {
+  background-color: lightgrey;
+  overflow: scroll;
+  height: 200px;
 }
 
 .list-task p {
@@ -175,5 +203,13 @@
 }
 
 .cancel-button {
+  margin: 5px;
+}
+
+.delete-button {
+  margin: 5px;
+}
+
+.edit-button {
   margin: 5px;
 }

@@ -57,7 +57,7 @@ function GratitudeList({ gratitude_list, setUserData }) {
   return (
     <div className="list-gratitude">
       <div className="gratitude-header header">
-      <h3>GratitudeList</h3>
+      <span className="sidebar-header">Gratitude List</span>
       <button
         onClick={
           displayGratitudeForm
@@ -81,7 +81,7 @@ function GratitudeList({ gratitude_list, setUserData }) {
         />
       )}
       
-        {gratitude_list?.map((gratitude_item) => {
+        {gratitude_list?.sort((a, b) => b.id - a.id ).map((gratitude_item) => {
           return (
             <GratitudeCard
               setGratitudeItem={setGratitudeItem}
