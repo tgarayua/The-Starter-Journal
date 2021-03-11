@@ -6,9 +6,8 @@ function TaskCard({
   setIsEditingTask,
   handleShowForm,
   handleDelete,
-  setUserData
+  setUserData,
 }) {
-
   const handleClick = (e) => {
     e.preventDefault();
     fetch(`http://localhost:3000/task/${task.id}`, {
@@ -16,31 +15,41 @@ function TaskCard({
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ complete: !task.complete }),
     })
-    .then(res => res.json())
-    .then(user => {
-      setUserData(user)
-    })
+      .then((res) => res.json())
+      .then((user) => {
+        setUserData(user);
+      });
   };
 
-  return <div>
-    {task.complete ?
-     <p onClick={handleClick}><strike>{task.title}</strike></p>
-     :
-      <p onClick={handleClick}>{task.title}</p>
-     }
-    <button
+  return (
+    <div className="task-card">
+      {task.complete ? (
+        <span className="task-title" onClick={handleClick}>
+          <strike>{task.title}</strike>
+        </span>
+      ) : (
+        <span className="task-title" onClick={handleClick}>{task.title}</span>
+      )}
+      <span class="edit-button">
+      <i
+      class="far fa-edit"
         onClick={() => {
           setTask(task);
           setIsEditingTask(true);
           handleShowForm(task.title);
         }}
-      >
-        Edit
-      </button>
-      <button onClick={e => {
-        handleDelete(e, task.id);
-      }}>Delete</button>  
-  </div>;
+      />
+      </span>
+      <span class="delete-button">
+        <i
+      class="far fa-trash-alt"
+        onClick={(e) => {
+          handleDelete(e, task.id);
+        }}
+      />
+      </span>
+    </div>
+  );
 }
 
 export default TaskCard;

@@ -58,17 +58,18 @@ function GratitudeList({ gratitude_list, setUserData }) {
     <div className="list-gratitude">
       <div className="gratitude-header header">
       <span className="sidebar-header">Gratitude List</span>
-      <button
-        onClick={
-          displayGratitudeForm
-            ? isEditingGratitudeItem
-              ? handleEditGratitudeItem
-              : handleCreateGratitudeItem
-            : () => handleShowForm("")
-        }
-      >
-        {displayGratitudeForm ? (isEditingGratitudeItem ? "Update" : "Submit"): "Create"} Gratitude Item
-      </button>
+      <span className="icon">
+          <i 
+            class={"far fa-" + (displayGratitudeForm ? "save" : "sticky-note") + " fa-lg"}
+            onClick={
+              displayGratitudeForm
+                ? isEditingGratitudeItem
+                  ? handleEditGratitudeItem
+                  : handleCreateGratitudeItem
+                : () => handleShowForm("")
+            }
+          />
+        </span>
       </div>
       <div className="gratitude-body">
       {displayGratitudeForm && (

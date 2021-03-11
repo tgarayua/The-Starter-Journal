@@ -20,11 +20,12 @@
 
 /* ****************************** OUR CODE BELOW ******************************* */
 .header-bar {
-  height: 60px;
-  position: relative;
-  z-index: 0;
-  margin: 0;
-  padding: 0;
+  height: 80px;
+  width: 100vw;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .profile-div {
@@ -33,7 +34,7 @@
   grid-template-rows: repeat(12, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  height: calc(100vh - 81px);
+  height: calc(100vh - 80px);
 }
 
 .list-bar-div {
@@ -46,6 +47,7 @@
 
   border-right: 1px solid black;
   width: 400px;
+  height: 100%;
 }
 
 .main-display-div {
@@ -66,7 +68,6 @@
 
 .header {
   font-family: 'Montserrat', sans-serif;
-  margin-bottom: 5px;
 }
 
 .sidebar-header {
@@ -80,12 +81,15 @@
   background-color: rgb(240, 240, 240);
   color: black;
   overflow-y: scroll;
+  margin: 0px;
+  width: 400px;
+  height: calc((100vh - 80px) / 3)
 }
 
 .journal-bar-body {
   background-color: lightgrey;
   overflow: scroll;
-  height: 200px;
+  height: calc(100% - 60px);
 }
 
 .display-post-header {
@@ -96,58 +100,63 @@
 .task-body {
   background-color: lightgrey;
   overflow: scroll;
-  height: 200px;
+  height: calc(100% - 60px);
 }
 
 .task-header {
-  padding: 20px;
+  height: 60px;
+  width: 400px;
+  display: table-cell;
+  vertical-align: middle;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
 }
 
 .journal-bar-header {
-  padding: 20px;
+  width: 400px;
+  height: 60px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+h1 {
+  margin-block-start: 0px;
+  margin-block-end: 0px;
 }
 
 .icon { 
   color: darkgray;
 }
 
-.task-body {
-  background-color: lightgrey;
-  overflow: scroll;
-  height: 200px;
-}
-
-.list-task p {
-  margin: 10px 0px 0px 0px;
+.gratitude-header {
+  height: 60px;
+  width: 400px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
 }
 
 .list-gratitude {
   grid-area: 5 / 1 / 9 / 13;
   background-color: rgb(240, 240, 240);
   color: black;
+  width: 400px;
+  height: calc((100vh - 80px) / 3)
 }
 
 .gratitude-body {
   background-color: lightgrey;
   overflow: scroll;
-  height: 200px;
-}
-
-.list-gratitude p {
-  margin: 10px 0px 0px 0px;
+  height: calc(100% - 60px);
 }
 
 .list-journal {
   grid-area: 9 / 1 / 13 / 13;
-  overflow-y: scroll;
   background-color: rgb(240, 240, 240);
   color: black;
-}
-
-.journal-bar-body {
-  background-color: lightgrey;
-  overflow: scroll;
-  height: 200px;
+  width: 400px;
+  height: calc((100vh - 80px) / 3)
 }
 
 .journal-card {
@@ -208,8 +217,26 @@
 
 .delete-button {
   margin: 5px;
+  color: darkred;
 }
 
 .edit-button {
   margin: 5px;
+  color: darkblue
+}
+
+.gratitude-card {
+  margin: 20px;
+}
+
+.gratitude-title {
+  margin-right: 5px;
+}
+
+.task-title {
+  margin-right: 5px;
+}
+
+.task-card {
+  margin: 20px;
 }
