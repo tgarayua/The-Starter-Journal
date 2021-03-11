@@ -28,12 +28,12 @@
 }
 
 .profile-div {
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  height: 100vh;
+  height: calc(100vh - 81px);
 }
 
 .list-bar-div {
@@ -44,19 +44,28 @@
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 
-  border: 1px solid black;
-  padding-: 10px;
+  border-right: 1px solid black;
+  width: 400px;
 }
-
 
 .main-display-div {
   grid-area: 1 / 4 / 13 / 13;
-  height: 100vh;
-  width: 100%;
-  padding: 10px;
-  /* margin: 0 auto; */
+  height: 100%;
+  width: calc(100% - 400px);
+  padding: 0px;
+  background-color: rgb(240, 240, 240);
+  color: black;
+}
 
-  
+.header {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 5px;
+}
+
+.sidebar-header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.33rem;
+  margin-right: 10px;
 }
 
 .list-task {
@@ -72,6 +81,14 @@
   height: 200px;
 }
 
+.journal-bar-header {
+  padding: 20px;
+}
+
+.icon { 
+  color: darkgray;
+}
+
 .list-task p {
   margin: 10px 0px 0px 0px;
 }
@@ -81,6 +98,7 @@
   background-color: rgb(240, 240, 240);
   color: black;
 }
+
 .gratitude-body {
   background-color: lightgrey;
   overflow: scroll;
@@ -104,21 +122,17 @@
   height: 200px;
 }
 
-.main-display-div {
-  background-color: rgb(240, 240, 240);
-  color: black;
-  position: relative;
+.journal-card {
+  padding-top: 10px;
 }
 
 .welcome-text {
-  position: absolute;
   font-size: 3rem;
-  top: 47%;
-  left: 25%;
 }
 
 .main-content {
   width: 95%;
+  height: 100%;
   padding: 10px;
   margin: 0px auto;
   white-space: pre-line;
@@ -127,12 +141,39 @@
 }
 
 .main-display-image {
-  background-image: url(../src/images/introImage.gif);
-  height: 100%;
-  width: 55%;
-  margin-left: 22%;
-  background-repeat: no-repeat;
-
+  margin: auto;
 }
 
+.new-post-title {
+  width: 35%;
+  margin-bottom: 10px;
+  font-size: 2rem;
+  padding: 5px;
+  font-family: 'Montserrat', sans-serif;
+}
 
+.new-post-content {
+  height: 80%;
+  margin-bottom: 20px;
+}
+
+.new-post-textarea {
+  width: 35%;
+  height: 100%;
+  resize: none;
+  font-size: 2rem;
+  padding: 5px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.new-post-form {
+  height: 80%;
+}
+
+.submit-button {
+  margin: 5px;
+}
+
+.cancel-button {
+  margin: 5px;
+}

@@ -8,7 +8,7 @@ function GratitudeCard({
   handleDelete
 }) {
   return (
-    <li>
+    <div>
       <p>
         {gratitude_item.title}
       </p>
@@ -24,7 +24,7 @@ function GratitudeCard({
       <button onClick={e => {
         handleDelete(e, gratitude_item.id);
       }}>Delete</button>
-    </li>
+    </div>
   );
 }
 

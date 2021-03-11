@@ -1,4 +1,5 @@
 import React from "react";
+import welcomeImage from '../images/introImage.gif';
 
 function JournalPost({
   displayPost,
@@ -17,19 +18,18 @@ function JournalPost({
   }
 
   return (
-    <div className="main-display-div">
-      {!displayPost && <div className="main-display-image">
-      </div>}
+    <>
       {displayPost && (
         <div className="main-content">
-          <h2>{displayPost.title}</h2>
+          <h2 className="header">{displayPost.title}</h2>
           <p>{displayPost.content}</p>
           <button onClick={handleDelete}>Delete</button>
           <button onClick={handleEnterEditMode}>Edit</button>
         </div>
-      )}
-      {!displayPost && <p className="welcome-text">Welcome to The Starter Journal</p>}
-    </div>
+        )}
+        {!displayPost && <p className="welcome-text header">Welcome to The Starter Journal</p>}
+        {!displayPost && <img src={welcomeImage} className="main-display-image"/>}
+    </>
   );
 }
 

@@ -22,7 +22,7 @@ function TaskCard({
     })
   };
 
-  return <li>
+  return <div>
     {task.complete ?
      <p onClick={handleClick}><strike>{task.title}</strike></p>
      :
@@ -40,7 +40,7 @@ function TaskCard({
       <button onClick={e => {
         handleDelete(e, task.id);
       }}>Delete</button>  
-  </li>;
+  </div>;
 }
 
 export default TaskCard;

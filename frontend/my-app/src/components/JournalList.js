@@ -7,40 +7,35 @@ function JournalList({
   setDisplayForm,
   setIsEditing,
   setJournalTitle,
-  setJournalContent
+  setJournalContent,
 }) {
-
   const handleEnterNewPostMode = () => {
-    setDisplayForm(true)
-    setIsEditing(false)
-    setJournalTitle("")
-    setJournalContent("")
-  }
+    setDisplayForm(true);
+    setIsEditing(false);
+    setJournalTitle("");
+    setJournalContent("");
+  };
 
   return (
     <div className="list-journal">
-      <div className="journal-bar-header">
-      <h3>Journal List</h3>
-      <button onClick={handleEnterNewPostMode}>
-        New Journal Post
-      </button>
+      <div className="journal-bar-header header">
+        <span class="sidebar-header">Journal List</span>
+        <span class="icon">
+          <i class="far fa-sticky-note fa-lg" onClick={handleEnterNewPostMode} />
+        </span>
       </div>
       <div className="journal-bar-body">
-      <ul>
-        {journal_posts ? 
-        journal_posts.reverse().map((journal_post) => {
-          return (
-            <JournalCard
-              key={journal_post.id}
-              journal_post={journal_post}
-              setDisplayPost={setDisplayPost}
-            />
-          );
-        })
-        :
-        null
-      }
-      </ul>
+        {journal_posts
+          ? journal_posts.reverse().map((journal_post) => {
+              return (
+                <JournalCard
+                  key={journal_post.id}
+                  journal_post={journal_post}
+                  setDisplayPost={setDisplayPost}
+                />
+              );
+            })
+          : null}
       </div>
     </div>
   );

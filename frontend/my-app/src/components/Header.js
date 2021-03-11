@@ -1,5 +1,5 @@
 function Header() {
-  return <div className="header-bar">
+  return <div className="header-bar header">
     <h1>The Starter Journal</h1>
   </div>;
 }

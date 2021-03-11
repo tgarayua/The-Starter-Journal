@@ -56,7 +56,7 @@ function GratitudeList({ gratitude_list, setUserData }) {
 
   return (
     <div className="list-gratitude">
-      <div className="gratitude-header">
+      <div className="gratitude-header header">
       <h3>GratitudeList</h3>
       <button
         onClick={
@@ -80,7 +80,7 @@ function GratitudeList({ gratitude_list, setUserData }) {
           onChange={(e) => setGratitudeTitle(e.target.value)}
         />
       )}
-      <ul>
+      
         {gratitude_list?.map((gratitude_item) => {
           return (
             <GratitudeCard
@@ -95,7 +95,7 @@ function GratitudeList({ gratitude_list, setUserData }) {
             />
           );
         })}
-      </ul>
+      
       </div>
     </div>
   );

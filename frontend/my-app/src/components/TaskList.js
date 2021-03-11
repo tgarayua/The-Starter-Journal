@@ -55,9 +55,10 @@ function TaskList({ tasks, setUserData }) {
 
   return (
     <div className="list-task">
-      <div className="task-header">
+      <div className="task-header header">
       <h3>TaskList</h3>
-      <button
+      <i 
+        class="far fa-plus-square"
         onClick={
           displayTaskForm
             ? isEditingTask
@@ -67,8 +68,7 @@ function TaskList({ tasks, setUserData }) {
         }
       >
         {displayTaskForm ? (isEditingTask ? "Update " : "Submit ") : "Create "}
-        Task
-      </button>
+      </i>
       </div>
       <div className="task-body">
       {displayTaskForm && (
@@ -80,7 +80,7 @@ function TaskList({ tasks, setUserData }) {
           onChange={(e) => setTaskTitle(e.target.value)}
         />
       )}
-      <ol>
+      
         {tasks?.map((task) => (
           <TaskCard
             key={task.id}
@@ -92,7 +92,7 @@ function TaskList({ tasks, setUserData }) {
             setUserData={setUserData}
           />
         ))}
-      </ol>
+      
       </div>
     </div>
   );

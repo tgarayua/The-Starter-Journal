@@ -17,7 +17,7 @@ function MainDisplay({
   isEditing
 }) {
   return (
-    <>
+    <div className="main-display-div">
       {displayForm ? (
         <Form
           setDisplayForm={setDisplayForm}
@@ -43,7 +43,7 @@ function MainDisplay({
           setIsEditing={setIsEditing}
         />
       )}
-    </>
+    </div>
   );
 }
 
