@@ -21,7 +21,6 @@
 /* ****************************** OUR CODE BELOW ******************************* */
 .header-bar {
   height: 60px;
-  box-shadow: 0px 8px 5px -5px gray;
   position: relative;
   z-index: 0;
   margin: 0;
@@ -65,7 +64,12 @@
   background-color: rgb(240, 240, 240);
   color: black;
   overflow-y: scroll;
+}
 
+.task-body {
+  background-color: lightgrey;
+  overflow: scroll;
+  height: 200px;
 }
 
 .list-task p {
@@ -92,6 +96,12 @@
   overflow-y: scroll;
   background-color: rgb(240, 240, 240);
   color: black;
+}
+
+.journal-bar-body {
+  background-color: lightgrey;
+  overflow: scroll;
+  height: 200px;
 }
 
 .main-display-div {

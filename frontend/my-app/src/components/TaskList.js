@@ -55,6 +55,7 @@ function TaskList({ tasks, setUserData }) {
 
   return (
     <div className="list-task">
+      <div className="task-header">
       <h3>TaskList</h3>
       <button
         onClick={
@@ -68,6 +69,8 @@ function TaskList({ tasks, setUserData }) {
         {displayTaskForm ? (isEditingTask ? "Update " : "Submit ") : "Create "}
         Task
       </button>
+      </div>
+      <div className="task-body">
       {displayTaskForm && (
         <input
           type="text"
@@ -90,6 +93,7 @@ function TaskList({ tasks, setUserData }) {
           />
         ))}
       </ol>
+      </div>
     </div>
   );
 }

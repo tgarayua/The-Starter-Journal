@@ -19,10 +19,13 @@ function JournalList({
 
   return (
     <div className="list-journal">
+      <div className="journal-bar-header">
       <h3>Journal List</h3>
       <button onClick={handleEnterNewPostMode}>
         New Journal Post
       </button>
+      </div>
+      <div className="journal-bar-body">
       <ul>
         {journal_posts ? 
         journal_posts.reverse().map((journal_post) => {
@@ -38,6 +41,7 @@ function JournalList({
         null
       }
       </ul>
+      </div>
     </div>
   );
 }
