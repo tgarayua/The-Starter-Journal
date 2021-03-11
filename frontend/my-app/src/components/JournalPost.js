@@ -18,6 +18,8 @@ function JournalPost({
 
   return (
     <div className="main-display-div">
+      {!displayPost && <div className="main-display-image">
+      </div>}
       {displayPost && (
         <div className="main-content">
           <h2>{displayPost.title}</h2>
@@ -26,7 +28,7 @@ function JournalPost({
           <button onClick={handleEnterEditMode}>Edit</button>
         </div>
       )}
-      {!displayPost && "Nothing to see here!"}
+      {!displayPost && <p className="welcome-text">Welcome to The Starter Journal</p>}
     </div>
   );
 }

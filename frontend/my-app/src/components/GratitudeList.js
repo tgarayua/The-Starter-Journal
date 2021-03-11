@@ -56,6 +56,7 @@ function GratitudeList({ gratitude_list, setUserData }) {
 
   return (
     <div className="list-gratitude">
+      <div className="gratitude-header">
       <h3>GratitudeList</h3>
       <button
         onClick={
@@ -68,6 +69,8 @@ function GratitudeList({ gratitude_list, setUserData }) {
       >
         {displayGratitudeForm ? (isEditingGratitudeItem ? "Update" : "Submit"): "Create"} Gratitude Item
       </button>
+      </div>
+      <div className="gratitude-body">
       {displayGratitudeForm && (
         <input
           type="text"
@@ -93,6 +96,7 @@ function GratitudeList({ gratitude_list, setUserData }) {
           );
         })}
       </ul>
+      </div>
     </div>
   );
 }
